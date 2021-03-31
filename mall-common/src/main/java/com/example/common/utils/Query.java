@@ -11,8 +11,8 @@ package com.example.common.utils;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import io.renren.common.xss.SQLFilter;
-import org.apache.commons.lang.StringUtils;
+import com.example.common.xss.SQLFilter;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
 
