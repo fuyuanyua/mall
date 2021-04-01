@@ -3,6 +3,7 @@ package com.example.mallmember.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.example.mallmember.feign.CouponFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,6 +30,22 @@ import com.example.common.utils.R;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    private CouponFeignService couponFeignService;
+
+    /**
+     * 测试用：远程调用mall-coupon服务
+     * @return
+     */
+    @RequestMapping("/listCoupon")
+    public R listCoupon() {
+        R r = couponFeignService.listMemberCoupon();
+        MemberEntity memberEntity = new MemberEntity();
+        memberEntity.setUsername("小明");
+        return R.ok().put("coupons", r.get("coupons"))
+                .put("member", memberEntity);
+    }
 
     /**
      * 列表
