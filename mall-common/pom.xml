@@ -54,7 +54,7 @@
             <version>3.12.0</version>
         </dependency>
 
-
+        <!-- 服务注册中心 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -71,6 +71,21 @@
             <artifactId>spring-cloud-loadbalancer</artifactId>
             <version>2.2.2.RELEASE</version>
         </dependency>
+
+        <!-- 配置中心 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!-- 加入此依赖可以读取到bootstrap.properties的配置 -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-bootstrap -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
