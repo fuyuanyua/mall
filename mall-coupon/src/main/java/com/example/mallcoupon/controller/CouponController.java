@@ -17,7 +17,7 @@ import com.example.common.utils.R;
 
 /**
  * 优惠券信息
- *
+ * @RefreshScope： 加上此注解，此bean的属性会动态从配置中心获取，不需要重启应用
  * @author lhb
  * @email 
  * @date 2021-03-31 22:15:10
