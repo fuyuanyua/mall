@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: mall-gateway
+
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: f834f052-cce8-466f-b781-6fa4c02660df
+        group: dev
+        extension-configs:
+          - data-id: application.yml
+            group: dev
+            refresh: true
