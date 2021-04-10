@@ -2,6 +2,7 @@ spring:
   application:
     name: mall-gateway
 
+
   cloud:
     nacos:
       config:
@@ -12,3 +13,11 @@ spring:
           - data-id: application.yml
             group: dev
             refresh: true
+
+    # 网关简单测试
+    gateway:
+      routes:
+        - id: test_baidu
+          uri: https://www.baidu.com
+          predicates:
+            - Query=url,baidu
