@@ -1,6 +1,7 @@
 package com.example.mallproduct.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +32,14 @@ public class CategoryController {
     private CategoryService categoryService;
 
     /**
-     * 列表
+     * 查出所有分类及其子分类，树型结构展示，有两种方式：
+     * 1. MyBatis中直接递归查询出来树型结构结果集返回（效率不高）
+     * 2. 查询出所有记录，在Service层将数据按树型结构组装然后返回（效率高）
      */
-    @RequestMapping("/list")
-    //@RequiresPermissions("mallproduct:category:list")
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = categoryService.queryPage(params);
-
-        return R.ok().put("page", page);
+    @RequestMapping("/listWithTree")
+    public R listWithTree() {
+        List<CategoryEntity> categoryEntities = categoryService.listWithTree();
+        return R.ok().put("list", categoryEntities);
     }
 
 
