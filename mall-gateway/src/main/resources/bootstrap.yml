@@ -1,7 +1,9 @@
+server:
+  port: 88
+
 spring:
   application:
     name: mall-gateway
-
 
   cloud:
     nacos:
@@ -21,3 +23,10 @@ spring:
           uri: https://www.baidu.com
           predicates:
             - Query=url,baidu
+
+        - id: third_part_route
+          uri: lb://mall-third-part
+          predicates:
+            - Path=/api/thirdPart/**
+          filters:
+            - RewritePath=/api/thirdPart/(?<segment>.*),/$\{segment}
