@@ -1,5 +1,6 @@
 package com.example.mallproduct.exception;
 
+import com.example.common.constant.ProductConstant;
 import com.example.common.utils.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
