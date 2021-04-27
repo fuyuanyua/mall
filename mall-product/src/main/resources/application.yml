@@ -19,6 +19,11 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
 
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 1qaz2wsx
+
 mybatis-plus:
   global-config:
     db-config:
@@ -26,3 +31,6 @@ mybatis-plus:
   # mapper文件路径
   mapper-locations: classpath:/mapper/**/*.xml
 
+logging:
+  level:
+    com.example.mallproduct.dao: debug

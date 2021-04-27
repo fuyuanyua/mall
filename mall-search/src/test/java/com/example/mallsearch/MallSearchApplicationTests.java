@@ -1,6 +1,7 @@
 package com.example.mallsearch;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
@@ -32,9 +33,10 @@ class MallSearchApplicationTests {
     @Test
     public void indexData() throws IOException {
         User user = new User();
-        user.setUsername("小明").setAge(18).setGender(2);
+        user.setUsername("小白").setAge(18).setGender(2);
         String jsonString = JSON.toJSONString(user);
         IndexRequest indexRequest = new IndexRequest("user");
+        indexRequest.id("1");
         indexRequest.source(jsonString, XContentType.JSON);
 
         IndexResponse indexResponse = restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
