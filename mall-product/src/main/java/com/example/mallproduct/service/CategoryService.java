@@ -23,5 +23,11 @@ public interface CategoryService extends IService<CategoryEntity> {
      * @return
      */
     List<CategoryEntity> listWithTree();
+
+    /**
+     * 更新单个分类
+     * @param categoryEntity
+     */
+    void update(CategoryEntity categoryEntity);
 }
 

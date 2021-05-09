@@ -26,6 +26,19 @@ spring:
   # SpringCache配置
   cache:
     type: redis
+    redis:
+      # 存活时间，单位ms
+      time-to-live: 3600000
+      # 指定缓存key名前缀
+      # 若有指定，使用我们指定的
+      # 若没指定，默认使用@Cacheable(cacheNames = {"category"}, key = "#root.method.name")指定的缓存名作为前缀
+      key-prefix: chche_
+      # 是否启用缓存key名前缀
+      # 启用：key名为前缀+指定的key
+      # 不启用：key名直接为指定的key，不会加上前缀
+      use-key-prefix: true
+      # 是否缓存null值，开启后能防止缓存穿透
+      cache-null-values: true
 
 mybatis-plus:
   global-config:

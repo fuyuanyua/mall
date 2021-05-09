@@ -46,13 +46,21 @@ import org.springframework.cache.annotation.EnableCaching;
  *              @CachePut: Updates the cache without interfering with the method execution.
  *              在不影响方法执行的情况下更新缓存
  *              @Caching: Regroups multiple cache operations to be applied on a method.
- *              重新组合要在方法上应用的多个缓存操作
+ *              组合要在方法上应用的多个缓存注解
  *              @CacheConfig: Shares some common cache-related settings at class-level.
  *              在类级别共享一些与缓存相关的常见设置
  *          4。使用步骤：
  *              1。）已经配置好相关配置
  *              2。）开启缓存：在主启动类上使用注解：@EnableCaching
  *              3。）在方法上使用以上常用注解
+ *          5。自定义配置：
+ *              如果自动配置无法满足我们开发需求，可以自定义配置
+ *              1。）原理：CacheAutoConfiguration -> 导入了RedisCacheConfiguration
+ *                  -> 自动配置了RedisCacheManager -> 会决定使用哪个org.springframework.data.redis.cache.RedisCacheConfiguration实例
+ *                  -> 如果容器中没自定义的org.springframework.data.redis.cache.RedisCacheConfiguration，就用默认的；如果有自定义的，用我们自定义的
+ *              2。）思路：我们自定义一个org.springframework.data.redis.cache.RedisCacheConfiguration配置（可以配置ttl、key序列化机制、value序列化机制等）
+ *              3。）创建自定义配置类：MyCacheConfiguration，将自定义org.springframework.data.redis.cache.RedisCacheConfiguration纳入容器
+ *
  *
  *
  *
