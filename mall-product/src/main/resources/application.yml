@@ -15,14 +15,17 @@ spring:
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
-  # 指定日期格式
+  # 序列化指定日期格式
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
-
+  # Redis服务
   redis:
     host: 127.0.0.1
     port: 6379
     password: 1qaz2wsx
+  # SpringCache配置
+  cache:
+    type: redis
 
 mybatis-plus:
   global-config:
