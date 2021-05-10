@@ -50,3 +50,10 @@ mybatis-plus:
 logging:
   level:
     com.example.mallproduct.dao: debug
+
+# 自定义配置-线程池相关参数配置
+mall:
+  thread-pool:
+    core-pool-size: 50
+    maximum-pool-size: 500
+    keep-alive-time: 10
